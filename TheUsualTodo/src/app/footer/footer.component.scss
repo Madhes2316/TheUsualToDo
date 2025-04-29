@@ -1,0 +1,17 @@
+.mainFooter-div{
+    position:absolute;
+    bottom:0;
+    width: 100%;
+}
+
+.footer-div{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-div span{
+    font-family: sans-serif;
+    font-size: small;
+}

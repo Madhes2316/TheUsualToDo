@@ -1,0 +1,34 @@
+.mainToDoInput-div{
+    height: 40px;
+}
+
+.ToDoInput-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ToDoInput-div form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 10px;
+}
+
+.ToDoInput-div input{
+    border-radius: 10px;
+    height: 30px;
+    width: 90%;
+}
+
+.ToDoInput-div button{
+    height: 35px;
+    width: 100px;
+    border-radius: 30px;
+    background-color: greenyellow;
+    border: none;
+    font-weight: bold;
+    color: black;
+}
