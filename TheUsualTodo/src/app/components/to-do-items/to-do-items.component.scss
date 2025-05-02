@@ -1,0 +1,51 @@
+.mainToDoItems-div{
+    // border: 2px solid red;
+    margin-top: 20px;
+}
+
+.todoItems-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-bottom: 20px;
+    align-items: stretch;
+}
+
+.todoItems-card{
+    border-radius: 20px;
+    width: 150px;
+    height: auto;
+    border: 2px solid black;
+    box-shadow: 4px 8px;
+    padding: 7px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+    background-color: rgb(140, 244, 132);
+    overflow-wrap:break-word;
+
+}
+
+.todoTitle-span{
+    font-size: large;
+    // margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.todoItems-card button{
+    cursor: pointer;
+    width: auto;
+    color: black;
+    font-weight: bold;
+    background-color: greenyellow;
+    border-radius: 20px;
+    border: none;
+    padding: 7px;
+    border: 2px solid black;
+    box-shadow: 2px 4px;
+}

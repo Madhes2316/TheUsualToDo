@@ -1,8 +1,10 @@
 <div class="mainToDoInput-div">
     <div class="ToDoInput-div">
-        <form action="">
-            <input type="text" >
-            <button>Add</button>
+        <form action="" (submit)="ToDoSubmitHandler()" [formGroup]="todoInputForm">
+            <input type="text"  placeholder="Enter your goals that you want to complete" formControlName="title" required="true">
+            <button type="submit">Add</button>
         </form>
     </div>
+    <app-to-do-items [toDoItemsFromParent]="toDoItems" (todoStatusChange)="updateTodoItemCompleteStatus($event)"/>
 </div>
+

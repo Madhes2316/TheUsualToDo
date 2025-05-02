@@ -1,0 +1,12 @@
+<div class="mainToDoItems-div">
+    <div class="todoItems-div">
+        @for (item of toDoItemsFromParent(); track item.id) {
+            <div class="todoItems-card" [ngStyle]="{'background-color': (item.isCompleted == false) ? 'rgb(245, 123, 123)' : 'rgb(140, 244, 132)'}">
+                <span class="todoTitle-span">{{item.title}}</span>
+                <span>Start: {{item.startTime}}</span>
+                <span>End: {{item.endTime == '' ? '#' : item.endTime}}</span>
+                <button [disabled]="item.isCompleted" (click)="TodoItemButtonHandler(item)">{{ item.isCompleted == false ? 'Complete' : 'Done'}}</button>
+            </div>
+        }
+    </div>
+</div>

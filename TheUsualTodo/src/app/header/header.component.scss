@@ -4,3 +4,25 @@
     padding: 20px;
     font-family: sans-serif;
 }
+
+.header-div span{
+    font-style: italic;
+}
+
+.websiteTitle-span{
+    font-size: large;
+    color: black;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.header-div button{
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: greenyellow;
+    color: black;
+    box-shadow: 3px 3px;
+    padding: 7px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
