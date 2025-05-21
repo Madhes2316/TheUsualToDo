@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToDoItemsComponent } from '../to-do-items/to-do-items.component';
 import { TodoItem } from '../../models/todo.model';
+import { TodoitemlistService } from '../../services/todoitemlist.service';
 
 @Component({
   selector: 'app-to-do-input',
@@ -9,13 +10,21 @@ import { TodoItem } from '../../models/todo.model';
   templateUrl: './to-do-input.component.html',
   styleUrl: './to-do-input.component.scss'
 })
-export class ToDoInputComponent {
+export class ToDoInputComponent implements OnInit {
   todoInputForm: FormGroup;
+  todoItemsFromService : TodoItem[] = [];
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder,private todoItemService:TodoitemlistService){
     this.todoInputForm = this.fb.group({
       title: ['']
     });
+  }
+
+  ngOnInit(): void {
+    this.todoItemsFromService = this.todoItemService.ReturnToDoItems();
+    if(this.todoItemsFromService.length > 0){
+      this.toDoItems = this.todoItemsFromService;
+    }
   }
   time = new Date().toLocaleTimeString();
   toDoItems : Array<TodoItem> = [];
@@ -33,6 +42,7 @@ export class ToDoInputComponent {
           endTime: ''
         })
 
+        this.todoItemService.SaveToDoItems(this.toDoItems);
         this.todoInputForm.reset();
       }
     }
@@ -47,6 +57,7 @@ export class ToDoInputComponent {
             endTime: new Date().toLocaleDateString()
           }
         }
+        this.todoItemService.SaveToDoItems(this.toDoItems);
         return todoItem;
       })
 

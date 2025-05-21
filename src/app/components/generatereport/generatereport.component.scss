@@ -1,0 +1,47 @@
+.generateReport-div{
+    // border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h3-div{
+    font-family: sans-serif;
+}
+
+.notodo-p{
+  font-family: sans-serif;
+  font-style: italic;
+}
+
+.table-div{
+  padding: 10px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+.downloadReport-button button{
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+// tr:nth-child(even) {
+//   // background-color: #c3fb79;
+// }

@@ -5,7 +5,8 @@ import { ToDoInputComponent } from '../components/to-do-input/to-do-input.compon
   selector: 'app-home-page',
   imports: [ToDoInputComponent],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  styleUrl: './home-page.component.scss',
+  standalone: true
 })
 export class HomePageComponent {
 

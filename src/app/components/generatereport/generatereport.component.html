@@ -1,0 +1,37 @@
+<div class="mainGenerateReport-div">
+    <div class="generateReport-div">
+        <div class="h3-div">
+            <h3>Todo Items</h3>
+        </div>
+        @if (!todoItems.length) {
+            <p class="notodo-p">No todo items available to generate report . . . </p>
+        }
+        @if (todoItems.length) {
+            <div class="table-div">
+            <table id="excel-table">
+            <tr>
+                <th>Title</th>
+                <th>Start time</th>
+                <th>End time</th>
+                <th>Time taken</th>
+                <th>Status</th>
+            </tr>
+                @for (item of todoItems; track item.id) {
+                    <tr [ngStyle]="{ 'background-color': item.isCompleted === true ? 'rgb(140, 244, 132)' : 'white' }">
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.startTime }}</td>
+                        <td>{{ item.endTime == '' ? 'Not done yet' : item.endTime }}</td>
+                        <td>{{ CalculateTimeDifference(item.endTime,item.startTime) == '' ? '-' : CalculateTimeDifference(item.endTime,item.startTime)}}</td>
+                        <td>{{ item.isCompleted == true ? 'Completed' : 'Not Done'  }}</td>
+                    </tr>
+                }
+            </table>
+            </div>
+        }
+        @if (todoItems.length) {
+            <div class="downloadReport-button" (click)="ExportExcel()">
+                    <button>Download Report</button>
+            </div>
+        }
+    </div>
+</div>

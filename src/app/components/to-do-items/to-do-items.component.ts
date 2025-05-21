@@ -16,7 +16,7 @@ export class ToDoItemsComponent {
   toDoItemsFromParent = input.required<TodoItem[]>();
 
   TodoItemButtonHandler(item:TodoItem){
-    console.log(item);
+    // console.log(item);
     let endTime = new Date().toLocaleTimeString();
     item.isCompleted = true;
     item.endTime = endTime;
