@@ -21,7 +21,7 @@
                         <td>{{ item.title }}</td>
                         <td>{{ item.startTime }}</td>
                         <td>{{ item.endTime == '' ? 'Not done yet' : item.endTime }}</td>
-                        <td>{{ CalculateTimeDifference(item.endTime,item.startTime) == '' ? '-' : CalculateTimeDifference(item.endTime,item.startTime)}}</td>
+                        <td>{{ item.endTime == '' ? '-' : CalculateTimeDifference(item.endTime,item.startTime)}}</td>
                         <td>{{ item.isCompleted == true ? 'Completed' : 'Not Done'  }}</td>
                     </tr>
                 }

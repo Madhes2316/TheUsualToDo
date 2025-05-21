@@ -18,29 +18,34 @@ export class GeneratereportComponent implements OnInit {
   todoItems:TodoItem[] = [];
 
   ngOnInit(): void {
+    this.todoItems = [];
     this.todoItems = this.todoItemListService.ReturnToDoItems();
   }
 
-  CalculateTimeDifference(endTime:any,startTime:any){
+  CalculateTimeDifference(endTime: any, startTime: any): string {
+  if (endTime && startTime) {
+    const startDate = new Date(`1970-01-01T${this.convertTo24Hr(startTime)}`);
+    const endDate = new Date(`1970-01-01T${this.convertTo24Hr(endTime)}`);
 
-      if(endTime !== ''){
-      const date1 = new Date(`1970-01-01T${startTime.split(' ')[0]}Z`);
-      const date2 = new Date(`1970-01-01T${endTime.split(' ')[0]}Z`);
+    const diffMs = Math.abs(endDate.getTime() - startDate.getTime());
 
-      // Difference in milliseconds
-      const diffMs = Math.abs(date2.getTime() - date1.getTime());
+    const hours = Math.floor(diffMs / (1000 * 60 * 60));
+    const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
 
-      // Convert to hh:mm:ss
-      const hours = Math.floor(diffMs / (1000 * 60 * 60));
-      const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-
-      return `${hours}h ${minutes}m ${seconds}s`;
-      }
-      else{
-        return '';
-      }
+    return `${hours}h ${minutes}m ${seconds}s`;
   }
+
+  return '';
+}
+
+// Converts 12-hour format with AM/PM to 24-hour format
+convertTo24Hr(timeStr: string): string {
+  const date = new Date(`1970-01-01 ${timeStr}`);
+  return date.toISOString().substring(11, 19); // "HH:MM:SS"
+}
+
+
 
   ExportExcel(): void
   {
