@@ -1,0 +1,1 @@
+import{K as r}from"./chunk-C2QOM57A.js";var e=class o{constructor(){}todoItemsArray=[];SaveToDoItems(t){this.todoItemsArray=t}ReturnToDoItems(){return this.todoItemsArray}static \u0275fac=function(a){return new(a||o)};static \u0275prov=r({token:o,factory:o.\u0275fac,providedIn:"root"})};export{e as a};
